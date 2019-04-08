@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//Author: Unity Tutorial
+//Modified by: Adriana Arzola
+//Date: 04/07/2019
 public class EnemyAttack : MonoBehaviour
 {
     public float timeBetweenAttacks = 0.5f;
     public int attackDamage = 10;
-
 
     Animator anim;
     GameObject player;
@@ -13,7 +15,6 @@ public class EnemyAttack : MonoBehaviour
     EnemyHealth enemyHealth;
     bool playerInRange;
     float timer;
-
 
     void Awake()
     {
@@ -23,7 +24,6 @@ public class EnemyAttack : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject == player)
@@ -32,7 +32,6 @@ public class EnemyAttack : MonoBehaviour
         }
     }
 
-
     void OnTriggerExit(Collider other)
     {
         if (other.gameObject == player)
@@ -40,7 +39,6 @@ public class EnemyAttack : MonoBehaviour
             playerInRange = false;
         }
     }
-
 
     void Update()
     {
@@ -57,7 +55,7 @@ public class EnemyAttack : MonoBehaviour
         }
     }
 
-
+    //Take health from player
     void Attack()
     {
         timer = 0f;
