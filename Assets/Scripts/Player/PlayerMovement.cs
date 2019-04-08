@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+//Author: Unity Tutorial
+//Modified By: Adriana Arzola
+//Date: 04/07/2019
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = 6f;
@@ -26,6 +29,11 @@ public class PlayerMovement : MonoBehaviour
         Animating(h, v);
     }
 
+    ///<summary>
+    ///Move the player
+    ///</summary>
+    ///<param value="h"></param>
+    ///<param value="v"></param>
     public void Move(float h, float v)
     {
         movement.Set(h, 0f, v);
@@ -33,6 +41,9 @@ public class PlayerMovement : MonoBehaviour
         playerRigidBody.MovePosition(transform.position + movement);
     }
 
+	///<summary>
+    ///Turn the player with mouse
+	///</summary>
     public void Turning()
     {
         Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -46,6 +57,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    ///<summary>
+    ///Animate the Player movement
+    ///</summary>
+    ///<param value="h"></param>
+    ///<param value="v"></param>
     public void Animating(float h, float v)
     {
         bool walking = h != 0f || v != 0f;
