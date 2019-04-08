@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+//Author: Unity Tutorial
+//Modified By: Adriana Arzola
+//Date: 04/07/2019
 public class EnemyHealth : MonoBehaviour
 {
     public int startingHealth = 100;
@@ -8,14 +11,12 @@ public class EnemyHealth : MonoBehaviour
     public int scoreValue = 10;
     public AudioClip deathClip;
 
-
     Animator anim;
     AudioSource enemyAudio;
     ParticleSystem hitParticles;
     CapsuleCollider capsuleCollider;
     bool isDead;
     bool isSinking;
-
 
     void Awake ()
     {
@@ -27,7 +28,6 @@ public class EnemyHealth : MonoBehaviour
         currentHealth = startingHealth;
     }
 
-
     void Update ()
     {
         if(isSinking)
@@ -36,7 +36,11 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-
+    ///<summary>
+    ///Allow Enemy to take damage
+    ///</summary>
+    ///<param value="amount">Amount of damage inflicted</param>
+    ///<param value="hitPoint">Point to release hit particles</param>
     public void TakeDamage (int amount, Vector3 hitPoint)
     {
         if(isDead)
@@ -55,7 +59,7 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-
+    //Enemy Is Dead Events
     void Death ()
     {
         isDead = true;
@@ -68,7 +72,9 @@ public class EnemyHealth : MonoBehaviour
         enemyAudio.Play ();
     }
 
-
+    ///<summary>
+    ///Sink Enemy through the ground plane
+    ///</summary>
     public void StartSinking ()
     {
         GetComponent <UnityEngine.AI.NavMeshAgent> ().enabled = false;
