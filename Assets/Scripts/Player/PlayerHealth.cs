@@ -3,7 +3,9 @@ using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-
+//Author: Unity Tutorial
+//Modified By: Adriana Arzola
+//Date: 04/07/2019
 public class PlayerHealth : MonoBehaviour
 {
     public int startingHealth = 100;
@@ -14,14 +16,12 @@ public class PlayerHealth : MonoBehaviour
     public float flashSpeed = 5f;
     public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
 
-
     Animator anim;
     AudioSource playerAudio;
     PlayerMovement playerMovement;
     PlayerShooting playerShooting;
     bool isDead;
     bool damaged;
-
 
     void Awake ()
     {
@@ -31,7 +31,6 @@ public class PlayerHealth : MonoBehaviour
         playerShooting = GetComponentInChildren <PlayerShooting> ();
         currentHealth = startingHealth;
     }
-
 
     void Update ()
     {
@@ -45,8 +44,10 @@ public class PlayerHealth : MonoBehaviour
         }
         damaged = false;
     }
-
-
+	///<summary>
+    ///Allow Player to take damage
+    ///</summary>
+    ///<param value="amount">Amount of damage inflicted</param>
     public void TakeDamage (int amount)
     {
         damaged = true;
@@ -63,7 +64,7 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-
+    //player death events
     void Death ()
     {
         isDead = true;
@@ -79,7 +80,9 @@ public class PlayerHealth : MonoBehaviour
         playerShooting.enabled = false;
     }
 
-
+    ///<summary>
+    ///Restart Level on Player Death
+    ///</summary>
     public void RestartLevel ()
     {
         SceneManager.LoadScene (0);
