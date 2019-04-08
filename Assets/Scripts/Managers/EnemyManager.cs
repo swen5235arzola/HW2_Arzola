@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+//Author: Unity Tutorial
+//Modified By: Adriana Arzola
+//Date: 04/07/2019
 public class EnemyManager : MonoBehaviour
 {
     public PlayerHealth playerHealth;
@@ -7,13 +10,12 @@ public class EnemyManager : MonoBehaviour
     public float spawnTime = 3f;
     public Transform[] spawnPoints;
 
-
     void Start ()
     {
         InvokeRepeating ("Spawn", spawnTime, spawnTime);
     }
 
-
+    //spawn a new enemy
     void Spawn ()
     {
         if(playerHealth.currentHealth <= 0f)
