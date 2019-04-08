@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//Author: Unity Tutorial
+//Modified By: Adriana Arzola
+//Date: 04/07/2019
 public class EnemyMovement : MonoBehaviour
 {
     Transform player;
     PlayerHealth playerHealth;
     EnemyHealth enemyHealth;
     UnityEngine.AI.NavMeshAgent nav;
-
 
     void Awake()
     {
@@ -20,9 +22,10 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
+        //stop movement if enemy is dead
         if(enemyHealth.currentHealth > 0 && playerHealth.currentHealth > 0)
         {
-        nav.SetDestination(player.position);
+            nav.SetDestination(player.position);
         }
         else
         {
