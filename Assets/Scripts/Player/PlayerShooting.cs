@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 
+//Author: Unity Tutorial
+//Modified By: Adriana Arzola
+//Date: 04/07/2019
 public class PlayerShooting : MonoBehaviour
 {
     public int damagePerShot = 20;
     public float timeBetweenBullets = 0.15f;
     public float range = 100f;
-
 
     float timer;
     Ray shootRay = new Ray();
@@ -17,7 +19,6 @@ public class PlayerShooting : MonoBehaviour
     Light gunLight;
     float effectsDisplayTime = 0.2f;
 
-
     void Awake ()
     {
         shootableMask = LayerMask.GetMask ("Shootable");
@@ -27,12 +28,11 @@ public class PlayerShooting : MonoBehaviour
         gunLight = GetComponent<Light> ();
     }
 
-
     void Update ()
     {
         timer += Time.deltaTime;
 
-		if(Input.GetButton ("Fire1") && timer >= timeBetweenBullets && Time.timeScale != 0)
+	if(Input.GetButton ("Fire1") && timer >= timeBetweenBullets && Time.timeScale != 0)
         {
             Shoot ();
         }
@@ -43,14 +43,14 @@ public class PlayerShooting : MonoBehaviour
         }
     }
 
-
-    public void DisableEffects ()
+    //Disable gun effects
+    void DisableEffects ()
     {
         gunLine.enabled = false;
         gunLight.enabled = false;
     }
 
-
+    //Shoot gun
     void Shoot ()
     {
         timer = 0f;
